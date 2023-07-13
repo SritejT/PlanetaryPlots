@@ -1,16 +1,8 @@
-//
-//  ContentView.swift
-//  PlanetaryPlots
-//
-//  Created by Ravindra Tummuru on 13/07/2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        PlotOrbitsView()
     }
 }
 
