@@ -14,7 +14,7 @@ struct SpirographView: View {
         var id: Self { self }
     }
     
-
+    
     @State private var planet1: Planets = .Mercury
     @State private var planet2: Planets = .Mercury
     @State private var isLoading = false
