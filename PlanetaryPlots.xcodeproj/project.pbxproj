@@ -17,6 +17,10 @@
 		127E2B782A6008600030D8E4 /* PlotOrbitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B772A6008600030D8E4 /* PlotOrbitsView.swift */; };
 		127E2B7A2A6009320030D8E4 /* PlotOrbitsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B792A6009320030D8E4 /* PlotOrbitsHandler.swift */; };
 		127E2B7C2A6020C70030D8E4 /* PlotOrbitsStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B7B2A6020C70030D8E4 /* PlotOrbitsStateController.swift */; };
+		127E2B7E2A6081180030D8E4 /* SpirographView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B7D2A6081180030D8E4 /* SpirographView.swift */; };
+		127E2B802A6081540030D8E4 /* RelativeOrbitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B7F2A6081540030D8E4 /* RelativeOrbitsView.swift */; };
+		1298505F2A6904920025D6EF /* SpirographHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1298505E2A6904920025D6EF /* SpirographHandler.swift */; };
+		129850612A6904A20025D6EF /* SpirographStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129850602A6904A20025D6EF /* SpirographStateController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		127E2B772A6008600030D8E4 /* PlotOrbitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotOrbitsView.swift; sourceTree = "<group>"; };
 		127E2B792A6009320030D8E4 /* PlotOrbitsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotOrbitsHandler.swift; sourceTree = "<group>"; };
 		127E2B7B2A6020C70030D8E4 /* PlotOrbitsStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotOrbitsStateController.swift; sourceTree = "<group>"; };
+		127E2B7D2A6081180030D8E4 /* SpirographView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographView.swift; sourceTree = "<group>"; };
+		127E2B7F2A6081540030D8E4 /* RelativeOrbitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsView.swift; sourceTree = "<group>"; };
+		1298505E2A6904920025D6EF /* SpirographHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographHandler.swift; sourceTree = "<group>"; };
+		129850602A6904A20025D6EF /* SpirographStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographStateController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,10 @@
 				127E2B772A6008600030D8E4 /* PlotOrbitsView.swift */,
 				127E2B792A6009320030D8E4 /* PlotOrbitsHandler.swift */,
 				127E2B7B2A6020C70030D8E4 /* PlotOrbitsStateController.swift */,
+				127E2B7F2A6081540030D8E4 /* RelativeOrbitsView.swift */,
+				127E2B7D2A6081180030D8E4 /* SpirographView.swift */,
+				1298505E2A6904920025D6EF /* SpirographHandler.swift */,
+				129850602A6904A20025D6EF /* SpirographStateController.swift */,
 			);
 			path = PlanetaryPlots;
 			sourceTree = "<group>";
@@ -266,11 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127E2B802A6081540030D8E4 /* RelativeOrbitsView.swift in Sources */,
 				127E2B502A6007040030D8E4 /* ContentView.swift in Sources */,
+				127E2B7E2A6081180030D8E4 /* SpirographView.swift in Sources */,
 				127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */,
+				129850612A6904A20025D6EF /* SpirographStateController.swift in Sources */,
 				127E2B7A2A6009320030D8E4 /* PlotOrbitsHandler.swift in Sources */,
 				127E2B782A6008600030D8E4 /* PlotOrbitsView.swift in Sources */,
 				127E2B7C2A6020C70030D8E4 /* PlotOrbitsStateController.swift in Sources */,
+				1298505F2A6904920025D6EF /* SpirographHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
