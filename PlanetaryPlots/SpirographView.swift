@@ -66,9 +66,7 @@ struct SpirographView: View {
                     .frame(height: 0)
                 
                 Button(action: {
-                    isLoading.toggle()
                     state.getSpirograph(planet1: planet1.rawValue, planet2: planet2.rawValue)
-                    loading_id += 1
                 }, label: {
                     Text("Generate Spirograph")
                         .font(.headline)
@@ -119,6 +117,22 @@ struct SpirographView: View {
                         .resizable()
                         .frame(width: 400.0, height: 400.0)
                         .scaledToFit()
+                    
+                    Button(action: {
+                        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+                    }, label: {
+                        Text("Save Spirograph")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .padding(.horizontal, 20)
+                            .background(
+                                Color(red: 0.0, green: 0.1, blue: 1.0)
+                                    .cornerRadius(10)
+                                    .shadow(radius: 10)
+                            )
+                    })
                 }
             }
             .pickerStyle(.menu)

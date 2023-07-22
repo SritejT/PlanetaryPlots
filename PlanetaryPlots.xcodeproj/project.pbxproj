@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120E5BE92A6BC08800804502 /* RelativeOrbitsStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */; };
+		120E5BEB2A6BC0A900804502 /* RelativeOrbitsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */; };
 		127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */; };
 		127E2B502A6007040030D8E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4F2A6007040030D8E4 /* ContentView.swift */; };
 		127E2B522A6007060030D8E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127E2B512A6007060030D8E4 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsStateController.swift; sourceTree = "<group>"; };
+		120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsHandler.swift; sourceTree = "<group>"; };
 		127E2B4A2A6007040030D8E4 /* PlanetaryPlots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetaryPlots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryPlotsApp.swift; sourceTree = "<group>"; };
 		127E2B4F2A6007040030D8E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,10 +119,12 @@
 				127E2B772A6008600030D8E4 /* PlotOrbitsView.swift */,
 				127E2B792A6009320030D8E4 /* PlotOrbitsHandler.swift */,
 				127E2B7B2A6020C70030D8E4 /* PlotOrbitsStateController.swift */,
-				127E2B7F2A6081540030D8E4 /* RelativeOrbitsView.swift */,
 				127E2B7D2A6081180030D8E4 /* SpirographView.swift */,
 				1298505E2A6904920025D6EF /* SpirographHandler.swift */,
 				129850602A6904A20025D6EF /* SpirographStateController.swift */,
+				127E2B7F2A6081540030D8E4 /* RelativeOrbitsView.swift */,
+				120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */,
+				120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */,
 			);
 			path = PlanetaryPlots;
 			sourceTree = "<group>";
@@ -281,11 +287,13 @@
 				127E2B802A6081540030D8E4 /* RelativeOrbitsView.swift in Sources */,
 				127E2B502A6007040030D8E4 /* ContentView.swift in Sources */,
 				127E2B7E2A6081180030D8E4 /* SpirographView.swift in Sources */,
+				120E5BEB2A6BC0A900804502 /* RelativeOrbitsHandler.swift in Sources */,
 				127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */,
 				129850612A6904A20025D6EF /* SpirographStateController.swift in Sources */,
 				127E2B7A2A6009320030D8E4 /* PlotOrbitsHandler.swift in Sources */,
 				127E2B782A6008600030D8E4 /* PlotOrbitsView.swift in Sources */,
 				127E2B7C2A6020C70030D8E4 /* PlotOrbitsStateController.swift in Sources */,
+				120E5BE92A6BC08800804502 /* RelativeOrbitsStateController.swift in Sources */,
 				1298505F2A6904920025D6EF /* SpirographHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +457,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PlanetaryPlots/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -477,6 +486,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PlanetaryPlots/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
