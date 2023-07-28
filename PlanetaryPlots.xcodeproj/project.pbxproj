@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		120E5BE92A6BC08800804502 /* RelativeOrbitsStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */; };
 		120E5BEB2A6BC0A900804502 /* RelativeOrbitsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */; };
+		120E5BED2A713F6400804502 /* GIFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BEC2A713F6400804502 /* GIFView.swift */; };
+		120E5BF02A719BAB00804502 /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 120E5BEF2A719BAB00804502 /* FLAnimatedImage */; };
+		120E5BF22A74057400804502 /* base64.txt in Resources */ = {isa = PBXBuildFile; fileRef = 120E5BF12A74057400804502 /* base64.txt */; };
+		120E5BF42A7452E400804502 /* CheckboxToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BF32A7452E400804502 /* CheckboxToggle.swift */; };
 		127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */; };
 		127E2B502A6007040030D8E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4F2A6007040030D8E4 /* ContentView.swift */; };
 		127E2B522A6007060030D8E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127E2B512A6007060030D8E4 /* Assets.xcassets */; };
@@ -45,6 +49,9 @@
 /* Begin PBXFileReference section */
 		120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsStateController.swift; sourceTree = "<group>"; };
 		120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsHandler.swift; sourceTree = "<group>"; };
+		120E5BEC2A713F6400804502 /* GIFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
+		120E5BF12A74057400804502 /* base64.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = base64.txt; path = ../../../../../Downloads/base64.txt; sourceTree = "<group>"; };
+		120E5BF32A7452E400804502 /* CheckboxToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggle.swift; sourceTree = "<group>"; };
 		127E2B4A2A6007040030D8E4 /* PlanetaryPlots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetaryPlots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryPlotsApp.swift; sourceTree = "<group>"; };
 		127E2B4F2A6007040030D8E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120E5BF02A719BAB00804502 /* FLAnimatedImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +120,7 @@
 		127E2B4C2A6007040030D8E4 /* PlanetaryPlots */ = {
 			isa = PBXGroup;
 			children = (
+				120E5BF12A74057400804502 /* base64.txt */,
 				127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */,
 				127E2B4F2A6007040030D8E4 /* ContentView.swift */,
 				127E2B512A6007060030D8E4 /* Assets.xcassets */,
@@ -125,6 +134,8 @@
 				127E2B7F2A6081540030D8E4 /* RelativeOrbitsView.swift */,
 				120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */,
 				120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */,
+				120E5BEC2A713F6400804502 /* GIFView.swift */,
+				120E5BF32A7452E400804502 /* CheckboxToggle.swift */,
 			);
 			path = PlanetaryPlots;
 			sourceTree = "<group>";
@@ -170,6 +181,9 @@
 			dependencies = (
 			);
 			name = PlanetaryPlots;
+			packageProductDependencies = (
+				120E5BEF2A719BAB00804502 /* FLAnimatedImage */,
+			);
 			productName = PlanetaryPlots;
 			productReference = 127E2B4A2A6007040030D8E4 /* PlanetaryPlots.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +256,9 @@
 				Base,
 			);
 			mainGroup = 127E2B412A6007040030D8E4;
+			packageReferences = (
+				120E5BEE2A719BAB00804502 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
+			);
 			productRefGroup = 127E2B4B2A6007040030D8E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				127E2B552A6007060030D8E4 /* Preview Assets.xcassets in Resources */,
+				120E5BF22A74057400804502 /* base64.txt in Resources */,
 				127E2B522A6007060030D8E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				127E2B802A6081540030D8E4 /* RelativeOrbitsView.swift in Sources */,
+				120E5BED2A713F6400804502 /* GIFView.swift in Sources */,
 				127E2B502A6007040030D8E4 /* ContentView.swift in Sources */,
 				127E2B7E2A6081180030D8E4 /* SpirographView.swift in Sources */,
 				120E5BEB2A6BC0A900804502 /* RelativeOrbitsHandler.swift in Sources */,
@@ -295,6 +314,7 @@
 				127E2B7C2A6020C70030D8E4 /* PlotOrbitsStateController.swift in Sources */,
 				120E5BE92A6BC08800804502 /* RelativeOrbitsStateController.swift in Sources */,
 				1298505F2A6904920025D6EF /* SpirographHandler.swift in Sources */,
+				120E5BF42A7452E400804502 /* CheckboxToggle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +637,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		120E5BEE2A719BAB00804502 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flipboard/FLAnimatedImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		120E5BEF2A719BAB00804502 /* FLAnimatedImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 120E5BEE2A719BAB00804502 /* XCRemoteSwiftPackageReference "FLAnimatedImage" */;
+			productName = FLAnimatedImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 127E2B422A6007040030D8E4 /* Project object */;
 }

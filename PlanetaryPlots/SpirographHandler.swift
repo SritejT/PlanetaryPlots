@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct ImageResponse: Codable {
+    var encodedImage: String
+}
+
 class SpirographHandler {
     
     func requestSpirograph(completionHandler: @escaping (String?) -> Void, planet1: String, planet2: String) {

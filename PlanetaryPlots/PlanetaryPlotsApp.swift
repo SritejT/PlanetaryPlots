@@ -13,5 +13,6 @@ struct PlanetaryPlotsApp: App {
         WindowGroup {
             ContentView()
         }
+        
     }
 }

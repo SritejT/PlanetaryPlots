@@ -28,39 +28,46 @@ struct SpirographView: View {
             VStack(spacing: 30) {
                 Spacer()
                     .frame(height: 30)
-                HStack(spacing: 10) {
-                    Text("Select 1st planet for spirograph:")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    Picker("Select 1st planet for spirograph", selection: $planet1) {
-                        ForEach(Planets.allCases) { planet in
-                            Text(planet.rawValue)
+                VStack(spacing: 20) {
+                    HStack(spacing: 10) {
+                        Text("Select 1st planet: ")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: 150, alignment: .trailing)
+                        Picker("Select 1st planet: ", selection: $planet1) {
+                            ForEach(Planets.allCases) { planet in
+                                Text(planet.rawValue)
+                            }
                         }
-                    }
-                    .accentColor(.white)
-                }
-                .padding()
-                .background(
-                    Color.blue
+                        .accentColor(.white)
+                        .padding()
+                        .background(Color.blue)
                         .cornerRadius(10)
-                )
-                
-                HStack(spacing: 10) {
-                    Text("Select 2nd planet for spirograph:")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    Picker("Select 2nd planet for spirograph", selection: $planet2) {
-                        ForEach(Planets.allCases) { planet in
-                            Text(planet.rawValue)
-                        }
                     }
-                    .accentColor(.white)
+                    
+                    
+                    HStack(spacing: 10) {
+                        Text("Select 2nd planet:  ")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: 150, alignment: .trailing)
+                        Picker("Select 2nd  planet: ", selection: $planet2) {
+                            ForEach(Planets.allCases) { planet in
+                                Text(planet.rawValue)
+                            }
+                        }
+                        .accentColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                    }
                 }
                 .padding()
-                .background(Color.blue)
-                .cornerRadius(10)
+                .background(Color(red: 0, green: 0.50, blue: 1)
+                                .opacity(0.75))
+                .cornerRadius(20)
                 
                 Spacer()
                     .frame(height: 0)
@@ -75,7 +82,7 @@ struct SpirographView: View {
                         .padding()
                         .padding(.horizontal, 20)
                         .background(
-                            Color(red: 0.0, green: 0.1, blue: 1.0)
+                            Color.blue
                                 .cornerRadius(10)
                                 .shadow(radius: 10)
                         )
@@ -128,7 +135,7 @@ struct SpirographView: View {
                             .padding()
                             .padding(.horizontal, 20)
                             .background(
-                                Color(red: 0.0, green: 0.1, blue: 1.0)
+                                Color.blue
                                     .cornerRadius(10)
                                     .shadow(radius: 10)
                             )

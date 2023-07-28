@@ -9,7 +9,7 @@ import Foundation
 
 class RelativeOrbitsHandler {
     func requestRelativeOrbit(completionHandler: @escaping (String?) -> Void, planet1: String, planet2: String) {
-        let url = URL(string: "https://iekrs4co7o2qgrczxtkeokzar40zkshf.lambda-url.eu-north-1.on.aws/?Planet1=\(planet1)&Planet2=\(planet2)")!
+        let url = URL(string: "https://iekrs4co7o2qgrczxtkeokzar40zkshf.lambda-url.eu-north-1.on.aws//?Planet1=\(planet1)&Planet2=\(planet2)")!
         
         let request = URLRequest(url: url)
         

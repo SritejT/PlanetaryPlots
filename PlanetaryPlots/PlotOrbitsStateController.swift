@@ -9,16 +9,19 @@ import Foundation
 
 class PlotOrbitsStateController: ObservableObject {
     @Published var encodedImage: String = ""
+    @Published var isLoading = false
     let plotOrbitsHandler = PlotOrbitsHandler()
     
-    func getInnerSolarSystemOrbits() {
-        plotOrbitsHandler.requestOrbits(completionHandler: updateImageData)
+    func getInnerSolarSystemOrbits(options: [Bool]) {
+        self.isLoading = true
+        plotOrbitsHandler.requestOrbits(completionHandler: updateImageData, options: options)
     }
     
     
     func updateImageData(image: String?) {
         DispatchQueue.main.async {
-            self.encodedImage = image ?? "Error finding image."
+            self.isLoading = false
+            self.encodedImage = image!
         }
     }
 }

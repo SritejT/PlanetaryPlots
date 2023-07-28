@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct ImageResponse: Codable {
+struct GIFResponse: Codable {
     var encodedImage: String
 }
 
 class PlotOrbitsHandler {
-    func requestOrbits(completionHandler: @escaping (String?) -> Void) {
-        let url = URL(string: "https://6pdmq4zddzuv7ap7l4apdlcnam0avnmv.lambda-url.eu-north-1.on.aws/")!
+    func requestOrbits(completionHandler: @escaping (String?) -> Void, options: [Bool]) {
+        let url = URL(string: "https://6pdmq4zddzuv7ap7l4apdlcnam0avnmv.lambda-url.eu-north-1.on.aws/?Mercury=\(String(options[0]))&Venus=\(String(options[1]))&Earth=\(String(options[2]))&Mars=\(String(options[3]))&Jupiter=\(String(options[4]))&Saturn=\(String(options[5]))&Uranus=\(String(options[6]))&Neptune=\(String(options[7]))&Pluto=\(String(options[8]))")!
         
         let request = URLRequest(url: url)
         

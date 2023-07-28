@@ -29,39 +29,48 @@ struct RelativeOrbitsView: View {
             VStack(spacing: 30) {
                 Spacer()
                     .frame(height: 30)
-                HStack(spacing: 10) {
-                    Text("Select stationary planet: ")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    Picker("Select stationary planet: ", selection: $planet1) {
-                        ForEach(Planets.allCases) { planet in
-                            Text(planet.rawValue)
+                VStack(spacing: 20) {
+                    HStack(spacing: 10) {
+                        Text("Select stationary planet: ")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                        
+                            .foregroundColor(.white)
+                            .frame(maxWidth: 210, alignment: .trailing)
+                        Picker("Select stationary planet: ", selection: $planet1) {
+                            ForEach(Planets.allCases) { planet in
+                                Text(planet.rawValue)
+                            }
                         }
-                    }
-                    .accentColor(.white)
-                }
-                .padding()
-                .background(
-                    Color.blue
+                        .accentColor(.white)
+                        .padding()
+                        .background(Color.blue)
                         .cornerRadius(10)
-                )
-                
-                HStack(spacing: 10) {
-                    Text("Select observed planet: ")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    Picker("Select observed planet: ", selection: $planet2) {
-                        ForEach(Planets.allCases) { planet in
-                            Text(planet.rawValue)
-                        }
                     }
-                    .accentColor(.white)
+                    
+                    
+                    HStack(spacing: 10) {
+                        Text("Select observed planet: ")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: 210, alignment: .trailing)
+                        Picker("Select observed planet: ", selection: $planet2) {
+                            ForEach(Planets.allCases) { planet in
+                                Text(planet.rawValue)
+                            }
+                        }
+                        .accentColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                    }
                 }
                 .padding()
-                .background(Color.blue)
-                .cornerRadius(10)
+                .background(Color(red: 0, green: 0.50, blue: 1)
+                                .opacity(0.75))
+                .cornerRadius(20)
+                
                 
                 Spacer()
                     .frame(height: 0)
@@ -76,7 +85,7 @@ struct RelativeOrbitsView: View {
                         .padding()
                         .padding(.horizontal, 20)
                         .background(
-                            Color(red: 0.0, green: 0.1, blue: 1.0)
+                            Color.blue
                                 .cornerRadius(10)
                                 .shadow(radius: 10)
                         )
@@ -129,7 +138,7 @@ struct RelativeOrbitsView: View {
                             .padding()
                             .padding(.horizontal, 20)
                             .background(
-                                Color(red: 0.0, green: 0.1, blue: 1.0)
+                                Color.blue
                                     .cornerRadius(10)
                                     .shadow(radius: 10)
                             )
