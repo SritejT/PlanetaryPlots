@@ -14,11 +14,10 @@ struct CheckboxStyle: ToggleStyle {
         return HStack {
  
             configuration.label
- 
             Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
                 .resizable()
                 .frame(width: 24, height: 24)
-                .foregroundColor(configuration.isOn ? .green : .red)
+                .foregroundColor(.white)
                 .font(.system(size: 20, weight: .bold, design: .default))
                 .onTapGesture {
                     configuration.isOn.toggle()

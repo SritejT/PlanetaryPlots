@@ -21,6 +21,7 @@ struct PlotOrbitsView: View {
     @State private var uranusOn: Bool = false
     @State private var neptuneOn: Bool = false
     @State private var plutoOn: Bool = false
+    @State private var validated = true
     
     @State var player = AVPlayer()
     @State var isPlaying: Bool = false
@@ -48,13 +49,24 @@ struct PlotOrbitsView: View {
                     }
                 }
                 .padding()
-                .background(Color(red: 0, green: 0.50, blue: 1)
-                                .opacity(0.75))
+                .background(Color(red: 0, green: 0.5, blue: 1.0)
+                                .opacity(0.1))
                 .cornerRadius(20)
+                
                     
                 Button(action: {
                     let options_array = [mercuryOn, venusOn, earthOn, marsOn, jupiterOn, saturnOn, uranusOn, neptuneOn, plutoOn]
-                    state.getInnerSolarSystemOrbits(options: options_array)
+                    var one_chosen = false
+                    for option in options_array {
+                        one_chosen = one_chosen || option
+                    }
+                    
+                    if one_chosen == false {
+                        validated = false
+                    } else {
+                        validated = true
+                        state.getInnerSolarSystemOrbits(options: options_array)
+                    }
                 }, label: {
                     Text("Generate Solar System Plot")
                         .font(.headline)
@@ -62,20 +74,30 @@ struct PlotOrbitsView: View {
                         .foregroundColor(.white)
                         .padding()
                         .padding(.horizontal, 20)
-                        .background(
-                            Color.blue
-                                .cornerRadius(10)
-                                .shadow(radius: 10)
-                        )
+                        .background(Color(red: 0, green: 0.5, blue: 1.0)
+                                        .opacity(0.75))
+                        .cornerRadius(10)
+                        .shadow(radius: 10)
                 })
                 
                 Divider()
+                    .frame(height: 2)
+                    .overlay(Color(red: 0, green: 0.5, blue: 1.0)
+                                .opacity(0.1))
                 
-                if state.isLoading {
+                if validated == false {
+                    Text("You must pick at least one planet to plot.")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(.blue)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        
+                } else if state.isLoading {
 
                     ZStack {
                         Text("Loading...")
                             .font(.system(.body, design: .rounded))
+                            .foregroundColor(.blue)
                             .bold()
                             .offset(x: 0, y: -25)
              

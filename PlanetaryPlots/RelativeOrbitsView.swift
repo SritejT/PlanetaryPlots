@@ -21,6 +21,7 @@ struct RelativeOrbitsView: View {
     @State private var planet2: Planets = .Mercury
     @State private var isLoading = false
     @State private var loading_id = 0
+    @State private var verified = true
     
     @State private var loading_pos = -110.0
     
@@ -42,11 +43,15 @@ struct RelativeOrbitsView: View {
                                 Text(planet.rawValue)
                             }
                         }
-                        .accentColor(.white)
+                        .accentColor(.blue)
                         .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                        .background(Color(red: 0.9, green: 0.95, blue: 1))
+                        .cornerRadius(20)
                     }
+                    .padding()
+                    .background(Color(red: 0, green: 0.50, blue: 1)
+                                    .opacity(0.75))
+                    .cornerRadius(20)
                     
                     
                     HStack(spacing: 10) {
@@ -60,15 +65,18 @@ struct RelativeOrbitsView: View {
                                 Text(planet.rawValue)
                             }
                         }
-                        .accentColor(.white)
+                        .accentColor(.blue)
                         .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                        .background(Color(red: 0.9, green: 0.95, blue: 1))
+                        .cornerRadius(20)
                     }
+                    .padding()
+                    .background(Color(red: 0, green: 0.50, blue: 1)
+                                    .opacity(0.75))
+                    .cornerRadius(20)
                 }
                 .padding()
-                .background(Color(red: 0, green: 0.50, blue: 1)
-                                .opacity(0.75))
+                .background(Color(red: 0.9, green: 0.95, blue: 1))
                 .cornerRadius(20)
                 
                 
@@ -76,7 +84,12 @@ struct RelativeOrbitsView: View {
                     .frame(height: 0)
                 
                 Button(action: {
-                    state.getRelativeOrbit(planet1: planet1.rawValue, planet2: planet2.rawValue)
+                    if planet1 == planet2 {
+                        verified = false
+                    } else {
+                        verified = true
+                        state.getRelativeOrbit(planet1: planet1.rawValue, planet2: planet2.rawValue)
+                    }
                 }, label: {
                     Text("Generate Relative Orbit")
                         .font(.headline)
@@ -84,21 +97,28 @@ struct RelativeOrbitsView: View {
                         .foregroundColor(.white)
                         .padding()
                         .padding(.horizontal, 20)
-                        .background(
-                            Color.blue
-                                .cornerRadius(10)
-                                .shadow(radius: 10)
-                        )
+                        .background(Color(red: 0, green: 0.50, blue: 1)
+                                        .opacity(0.75)
+                                        .cornerRadius(10)
+                                        .shadow(radius: 10))
                 })
                 
                 Divider()
+                    .frame(height: 2)
+                    .overlay(Color(red: 0, green: 0.5, blue: 1.0)
+                                .opacity(0.1))
                 
-                if state.isLoading {
-                    Spacer()
-                        .frame(height: 160)
+                if !verified {
+                    Text("You cannot pick the same planet twice.")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(.blue)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                } else if state.isLoading {
                     ZStack {
                         Text("Loading...")
                             .font(.system(.body, design: .rounded))
+                            .foregroundColor(.blue)
                             .bold()
                             .offset(x: 0, y: -25)
              
@@ -138,7 +158,8 @@ struct RelativeOrbitsView: View {
                             .padding()
                             .padding(.horizontal, 20)
                             .background(
-                                Color.blue
+                                Color(red: 0, green: 0.50, blue: 1)
+                                    .opacity(0.75)
                                     .cornerRadius(10)
                                     .shadow(radius: 10)
                             )

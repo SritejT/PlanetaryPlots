@@ -17,13 +17,13 @@ struct GIFView: UIViewRepresentable {
         if let gifData = Data(base64Encoded: encodedGIF) {
             let gif = FLAnimatedImage(animatedGIFData: gifData)
             animatedView.animatedImage = gif
-            print("Success")
         }
         
-        animatedView.bounds = animatedView.frame.insetBy(dx: 0.0, dy: 0.0)
         animatedView.translatesAutoresizingMaskIntoConstraints = false
-        animatedView.layer.borderWidth = 1
-        animatedView.layer.borderColor = UIColor.black.cgColor
+        // animatedView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
+        // animatedView.layer.cornerRadius = 10
+        // animatedView.layer.borderWidth = 1
+        // animatedView.layer.borderColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 0.75).cgColor
         
         view.addSubview(animatedView)
         

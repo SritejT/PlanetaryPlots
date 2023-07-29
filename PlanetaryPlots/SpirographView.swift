@@ -19,6 +19,7 @@ struct SpirographView: View {
     @State private var planet2: Planets = .Mercury
     @State private var isLoading = false
     @State private var loading_id = 0
+    @State private var verified = true
     
     @State private var loading_pos = -110.0
     @StateObject var state = SpirographStateController()
@@ -38,13 +39,20 @@ struct SpirographView: View {
                         Picker("Select 1st planet: ", selection: $planet1) {
                             ForEach(Planets.allCases) { planet in
                                 Text(planet.rawValue)
+    
                             }
                         }
-                        .accentColor(.white)
+                        .accentColor(.blue)
                         .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                        .background(Color(red: 0.9, green: 0.95, blue: 1))
+                        .cornerRadius(20)
+                        
+
                     }
+                    .padding()
+                    .background(Color(red: 0, green: 0.50, blue: 1)
+                                    .opacity(0.75))
+                    .cornerRadius(20)
                     
                     
                     HStack(spacing: 10) {
@@ -58,22 +66,31 @@ struct SpirographView: View {
                                 Text(planet.rawValue)
                             }
                         }
-                        .accentColor(.white)
+                        .accentColor(.blue)
                         .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                        .background(Color(red: 0.9, green: 0.95, blue: 1))
+                        .cornerRadius(20)
                     }
+                    .padding()
+                    .background(Color(red: 0, green: 0.50, blue: 1)
+                                    .opacity(0.75))
+                    .cornerRadius(20)
                 }
                 .padding()
                 .background(Color(red: 0, green: 0.50, blue: 1)
-                                .opacity(0.75))
+                                .opacity(0.1))
                 .cornerRadius(20)
                 
                 Spacer()
                     .frame(height: 0)
                 
                 Button(action: {
-                    state.getSpirograph(planet1: planet1.rawValue, planet2: planet2.rawValue)
+                    if planet1 != planet2 {
+                        verified = true
+                        state.getSpirograph(planet1: planet1.rawValue, planet2: planet2.rawValue)
+                    } else {
+                        verified = false
+                    }
                 }, label: {
                     Text("Generate Spirograph")
                         .font(.headline)
@@ -82,20 +99,29 @@ struct SpirographView: View {
                         .padding()
                         .padding(.horizontal, 20)
                         .background(
-                            Color.blue
+                            Color(red: 0, green: 0.50, blue: 1)
+                                .opacity(0.75)
                                 .cornerRadius(10)
                                 .shadow(radius: 10)
                         )
                 })
                 
                 Divider()
+                    .frame(height: 2)
+                    .overlay(Color(red: 0, green: 0.5, blue: 1.0)
+                                .opacity(0.1))
                 
-                if state.isLoading {
-                    Spacer()
-                        .frame(height: 160)
+                if !verified {
+                    Text("You cannot pick the same planet twice.")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(.blue)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                } else if state.isLoading {
                     ZStack {
                         Text("Loading...")
                             .font(.system(.body, design: .rounded))
+                            .foregroundColor(.blue)
                             .bold()
                             .offset(x: 0, y: -25)
              
@@ -135,7 +161,8 @@ struct SpirographView: View {
                             .padding()
                             .padding(.horizontal, 20)
                             .background(
-                                Color.blue
+                                Color(red: 0, green: 0.50, blue: 1)
+                                    .opacity(0.75)
                                     .cornerRadius(10)
                                     .shadow(radius: 10)
                             )
