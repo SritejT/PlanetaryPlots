@@ -11,8 +11,9 @@
 		120E5BEB2A6BC0A900804502 /* RelativeOrbitsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */; };
 		120E5BED2A713F6400804502 /* GIFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BEC2A713F6400804502 /* GIFView.swift */; };
 		120E5BF02A719BAB00804502 /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 120E5BEF2A719BAB00804502 /* FLAnimatedImage */; };
-		120E5BF22A74057400804502 /* base64.txt in Resources */ = {isa = PBXBuildFile; fileRef = 120E5BF12A74057400804502 /* base64.txt */; };
 		120E5BF42A7452E400804502 /* CheckboxToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BF32A7452E400804502 /* CheckboxToggle.swift */; };
+		121ED6B02A75836E00ECCAF6 /* CustomPlanetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */; };
+		121ED6B42A75873B00ECCAF6 /* SpirographWindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121ED6B32A75873A00ECCAF6 /* SpirographWindowState.swift */; };
 		127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */; };
 		127E2B502A6007040030D8E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4F2A6007040030D8E4 /* ContentView.swift */; };
 		127E2B522A6007060030D8E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127E2B512A6007060030D8E4 /* Assets.xcassets */; };
@@ -50,8 +51,9 @@
 		120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsStateController.swift; sourceTree = "<group>"; };
 		120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsHandler.swift; sourceTree = "<group>"; };
 		120E5BEC2A713F6400804502 /* GIFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
-		120E5BF12A74057400804502 /* base64.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = base64.txt; path = ../../../../../Downloads/base64.txt; sourceTree = "<group>"; };
 		120E5BF32A7452E400804502 /* CheckboxToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggle.swift; sourceTree = "<group>"; };
+		121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlanetFormView.swift; sourceTree = "<group>"; };
+		121ED6B32A75873A00ECCAF6 /* SpirographWindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographWindowState.swift; sourceTree = "<group>"; };
 		127E2B4A2A6007040030D8E4 /* PlanetaryPlots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetaryPlots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryPlotsApp.swift; sourceTree = "<group>"; };
 		127E2B4F2A6007040030D8E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,7 +122,6 @@
 		127E2B4C2A6007040030D8E4 /* PlanetaryPlots */ = {
 			isa = PBXGroup;
 			children = (
-				120E5BF12A74057400804502 /* base64.txt */,
 				127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */,
 				127E2B4F2A6007040030D8E4 /* ContentView.swift */,
 				127E2B512A6007060030D8E4 /* Assets.xcassets */,
@@ -136,6 +137,8 @@
 				120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */,
 				120E5BEC2A713F6400804502 /* GIFView.swift */,
 				120E5BF32A7452E400804502 /* CheckboxToggle.swift */,
+				121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */,
+				121ED6B32A75873A00ECCAF6 /* SpirographWindowState.swift */,
 			);
 			path = PlanetaryPlots;
 			sourceTree = "<group>";
@@ -276,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				127E2B552A6007060030D8E4 /* Preview Assets.xcassets in Resources */,
-				120E5BF22A74057400804502 /* base64.txt in Resources */,
 				127E2B522A6007060030D8E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,11 +310,13 @@
 				127E2B7E2A6081180030D8E4 /* SpirographView.swift in Sources */,
 				120E5BEB2A6BC0A900804502 /* RelativeOrbitsHandler.swift in Sources */,
 				127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */,
+				121ED6B42A75873B00ECCAF6 /* SpirographWindowState.swift in Sources */,
 				129850612A6904A20025D6EF /* SpirographStateController.swift in Sources */,
 				127E2B7A2A6009320030D8E4 /* PlotOrbitsHandler.swift in Sources */,
 				127E2B782A6008600030D8E4 /* PlotOrbitsView.swift in Sources */,
 				127E2B7C2A6020C70030D8E4 /* PlotOrbitsStateController.swift in Sources */,
 				120E5BE92A6BC08800804502 /* RelativeOrbitsStateController.swift in Sources */,
+				121ED6B02A75836E00ECCAF6 /* CustomPlanetFormView.swift in Sources */,
 				1298505F2A6904920025D6EF /* SpirographHandler.swift in Sources */,
 				120E5BF42A7452E400804502 /* CheckboxToggle.swift in Sources */,
 			);
@@ -482,7 +486,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,7 +515,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

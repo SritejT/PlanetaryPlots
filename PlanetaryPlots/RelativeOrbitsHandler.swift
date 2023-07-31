@@ -8,8 +8,8 @@
 import Foundation
 
 class RelativeOrbitsHandler {
-    func requestRelativeOrbit(completionHandler: @escaping (String?) -> Void, planet1: String, planet2: String) {
-        let url = URL(string: "https://iekrs4co7o2qgrczxtkeokzar40zkshf.lambda-url.eu-north-1.on.aws//?Planet1=\(planet1)&Planet2=\(planet2)")!
+    func requestRelativeOrbit(completionHandler: @escaping (String?) -> Void, orbitalPeriod1: String, semiMajorAxis1: String, eccentricity1: String, orbitalPeriod2: String, semiMajorAxis2: String, eccentricity2: String) {
+        let url = URL(string: "https://iekrs4co7o2qgrczxtkeokzar40zkshf.lambda-url.eu-north-1.on.aws/?orbitalPeriod1=\(orbitalPeriod1)&semiMajorAxis1=\(semiMajorAxis1)&eccentricity1=\(eccentricity1)&orbitalPeriod2=\(orbitalPeriod2)&semiMajorAxis2=\(semiMajorAxis2)&eccentricity2=\(eccentricity2)")!
         
         let request = URLRequest(url: url)
         

@@ -12,9 +12,9 @@ class SpirographStateController: ObservableObject {
     @Published var isLoading = false
     let spirographHandler = SpirographHandler()
     
-    func getSpirograph(planet1: String, planet2: String) {
+    func getSpirograph(orbitalPeriod1: String, semiMajorAxis1: String, eccentricity1: String, orbitalPeriod2: String, semiMajorAxis2: String, eccentricity2: String) {
         self.isLoading = true
-        spirographHandler.requestSpirograph(completionHandler: updateImageData, planet1: planet1, planet2: planet2)
+        spirographHandler.requestSpirograph(completionHandler: updateImageData, orbitalPeriod1: orbitalPeriod1, semiMajorAxis1: semiMajorAxis1, eccentricity1: eccentricity1, orbitalPeriod2: orbitalPeriod2, semiMajorAxis2: semiMajorAxis2, eccentricity2: eccentricity2)
     }
     
     
