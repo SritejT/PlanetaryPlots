@@ -13,7 +13,6 @@
 		120E5BF02A719BAB00804502 /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 120E5BEF2A719BAB00804502 /* FLAnimatedImage */; };
 		120E5BF42A7452E400804502 /* CheckboxToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BF32A7452E400804502 /* CheckboxToggle.swift */; };
 		121ED6B02A75836E00ECCAF6 /* CustomPlanetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */; };
-		121ED6B42A75873B00ECCAF6 /* SpirographWindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121ED6B32A75873A00ECCAF6 /* SpirographWindowState.swift */; };
 		127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */; };
 		127E2B502A6007040030D8E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4F2A6007040030D8E4 /* ContentView.swift */; };
 		127E2B522A6007060030D8E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127E2B512A6007060030D8E4 /* Assets.xcassets */; };
@@ -28,6 +27,7 @@
 		127E2B802A6081540030D8E4 /* RelativeOrbitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B7F2A6081540030D8E4 /* RelativeOrbitsView.swift */; };
 		1298505F2A6904920025D6EF /* SpirographHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1298505E2A6904920025D6EF /* SpirographHandler.swift */; };
 		129850612A6904A20025D6EF /* SpirographStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129850602A6904A20025D6EF /* SpirographStateController.swift */; };
+		12F7DDDA2A78F7FE002929B6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F7DDD92A78F7FE002929B6 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,6 @@
 		120E5BEC2A713F6400804502 /* GIFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
 		120E5BF32A7452E400804502 /* CheckboxToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggle.swift; sourceTree = "<group>"; };
 		121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlanetFormView.swift; sourceTree = "<group>"; };
-		121ED6B32A75873A00ECCAF6 /* SpirographWindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographWindowState.swift; sourceTree = "<group>"; };
 		127E2B4A2A6007040030D8E4 /* PlanetaryPlots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetaryPlots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryPlotsApp.swift; sourceTree = "<group>"; };
 		127E2B4F2A6007040030D8E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		127E2B7F2A6081540030D8E4 /* RelativeOrbitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsView.swift; sourceTree = "<group>"; };
 		1298505E2A6904920025D6EF /* SpirographHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographHandler.swift; sourceTree = "<group>"; };
 		129850602A6904A20025D6EF /* SpirographStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographStateController.swift; sourceTree = "<group>"; };
+		12F7DDD92A78F7FE002929B6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,7 @@
 				120E5BEC2A713F6400804502 /* GIFView.swift */,
 				120E5BF32A7452E400804502 /* CheckboxToggle.swift */,
 				121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */,
-				121ED6B32A75873A00ECCAF6 /* SpirographWindowState.swift */,
+				12F7DDD92A78F7FE002929B6 /* LoadingView.swift */,
 			);
 			path = PlanetaryPlots;
 			sourceTree = "<group>";
@@ -310,9 +310,9 @@
 				127E2B7E2A6081180030D8E4 /* SpirographView.swift in Sources */,
 				120E5BEB2A6BC0A900804502 /* RelativeOrbitsHandler.swift in Sources */,
 				127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */,
-				121ED6B42A75873B00ECCAF6 /* SpirographWindowState.swift in Sources */,
 				129850612A6904A20025D6EF /* SpirographStateController.swift in Sources */,
 				127E2B7A2A6009320030D8E4 /* PlotOrbitsHandler.swift in Sources */,
+				12F7DDDA2A78F7FE002929B6 /* LoadingView.swift in Sources */,
 				127E2B782A6008600030D8E4 /* PlotOrbitsView.swift in Sources */,
 				127E2B7C2A6020C70030D8E4 /* PlotOrbitsStateController.swift in Sources */,
 				120E5BE92A6BC08800804502 /* RelativeOrbitsStateController.swift in Sources */,
@@ -479,6 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlanetaryPlots/Preview Content\"";
+				DEVELOPMENT_TEAM = L35RMX4RM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
@@ -508,6 +509,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlanetaryPlots/Preview Content\"";
+				DEVELOPMENT_TEAM = L35RMX4RM6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";

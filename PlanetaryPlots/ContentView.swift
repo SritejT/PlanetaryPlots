@@ -1,14 +1,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var spirographWindowState = SpirographWindowState()
     var body: some View {
         TabView {
             PlotOrbitsView()
                 .tabItem {
                     Label("Plot Orbits", systemImage: "circle.circle")
                 }
-            SpirographView().environmentObject(spirographWindowState)
+            SpirographView()
                 .tabItem {
                     Label("Spirographs", systemImage: "scribble.variable")
                 }

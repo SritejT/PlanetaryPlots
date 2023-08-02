@@ -50,30 +50,32 @@ struct SpirographView: View {
         "Pluto": "0.25"
     ]
     
+    @State var showCustomForm = false
+    @State var semiMajorAxis1: String = "0.387"
+    @State var semiMajorAxis2: String = "0.387"
+    @State var orbitalPeriod1: String = "0.241"
+    @State var orbitalPeriod2: String = "0.241"
+    @State var eccentricity1: String = "0.21"
+    @State var eccentricity2: String = "0.21"
     
+    @State var planet1: Planets = .Mercury
+    @State var planet2: Planets = .Mercury
+    @State var isLoading = false
+    @State var verified = true
     
-    
-    @State private var showCustomForm = false
-    @State private var semiMajorAxis1: String = "0.387"
-    @State private var semiMajorAxis2: String = "0.387"
-    @State private var orbitalPeriod1: String = "0.241"
-    @State private var orbitalPeriod2: String = "0.241"
-    @State private var eccentricity1: String = "0.21"
-    @State private var eccentricity2: String = "0.21"
-    
-    @State private var planet1: Planets = .Mercury
-    @State private var planet2: Planets = .Mercury
-    @State private var isLoading = false
-    @State private var verified = true
-    
-    @State private var picker1Disabled = false
-    @State private var picker2Disabled = false
-    @State private var custom1Disabled = false
-    @State private var custom2Disabled = false
-    
+    @State var picker1Disabled = false
+    @State var picker2Disabled = false
+    @State var custom1Disabled = false
+    @State var custom2Disabled = false
     
     @State private var loading_pos = -110.0
     @StateObject var state = SpirographStateController()
+    
+    var progressAnimation: Animation {
+        Animation
+            .easeInOut(duration: 1)
+            .repeatForever(autoreverses: true)
+    }
     
     var body: some View {
     ScrollView {
@@ -88,30 +90,33 @@ struct SpirographView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: 150, alignment: .trailing)
                     
-                    Picker("Select 1st planet: ", selection: $planet1) {
+                    Menu(planet1.rawValue) {
                         ForEach(Planets.allCases) { planet in
-                            Text(planet.rawValue)
+                            Button {
+                                planet1 = planet
+                                picker1Disabled = false
+                                semiMajorAxis1 = semiMajorAxes[planet.rawValue]!
+                                orbitalPeriod1 = orbitalPeriods[planet.rawValue]!
+                                eccentricity1 = eccentricities[planet.rawValue]!
+                                custom1Disabled = true
+                            } label: {
+                                Text(planet.rawValue)
+                            }
                         }
                     }
-                    .onChange(of: planet1) { newPlanet1 in
-                        picker1Disabled = false
-                        semiMajorAxis1 = semiMajorAxes[newPlanet1.rawValue]!
-                        orbitalPeriod1 = orbitalPeriods[newPlanet1.rawValue]!
-                        eccentricity1 = eccentricities[newPlanet1.rawValue]!
-                        custom1Disabled = true
-                    }
-                    .accentColor(picker1Disabled ? .gray : .blue)
+                    .foregroundColor(picker1Disabled ? .gray : .blue)
                     .padding()
                     .background(.white)
                     .cornerRadius(20)
                     
+                        
                     Button(action: {
                         custom1Disabled = false
-                        showCustomForm.toggle()
+                        showCustomForm = true
                         picker1Disabled = true
                     }, label: {
                         Text("Custom Planet")
-                            .accentColor(custom1Disabled ? .gray : .blue)
+                            .foregroundColor(custom1Disabled ? .gray : .blue)
                             .frame(maxWidth: 70, alignment: .center)
                             .padding()
                             .background(.white)
@@ -136,30 +141,32 @@ struct SpirographView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: 150, alignment: .trailing)
                     
-                    Picker("Select 2nd planet: ", selection: $planet2) {
+                    Menu(planet2.rawValue) {
                         ForEach(Planets.allCases) { planet in
-                            Text(planet.rawValue)
+                            Button {
+                                planet2 = planet
+                                picker2Disabled = false
+                                semiMajorAxis2 = semiMajorAxes[planet.rawValue]!
+                                orbitalPeriod2 = orbitalPeriods[planet.rawValue]!
+                                eccentricity2 = eccentricities[planet.rawValue]!
+                                custom2Disabled = true
+                            } label: {
+                                Text(planet.rawValue)
+                            }
                         }
                     }
-                    .onChange(of: planet2) { newPlanet2 in
-                        picker2Disabled = false
-                        semiMajorAxis2 = semiMajorAxes[newPlanet2.rawValue]!
-                        orbitalPeriod2 = orbitalPeriods[newPlanet2.rawValue]!
-                        eccentricity2 = eccentricities[newPlanet2.rawValue]!
-                        custom2Disabled = true
-                    }
-                    .accentColor(picker2Disabled ? .gray : .blue)
+                    .foregroundColor(picker2Disabled ? .gray : .blue)
                     .padding()
                     .background(.white)
                     .cornerRadius(20)
                     
                     Button(action: {
                         custom2Disabled = false
-                        showCustomForm.toggle()
+                        showCustomForm = true
                         picker2Disabled = true
                     }, label: {
                         Text("Custom Planet")
-                            .accentColor(custom2Disabled ? .gray : .blue)
+                            .foregroundColor(custom2Disabled ? .gray : .blue)
                             .frame(maxWidth: 70, alignment: .center)
                             .padding()
                             .background(.white)
@@ -197,13 +204,11 @@ struct SpirographView: View {
                     .foregroundColor(.white)
                     .padding()
                     .padding(.horizontal, 20)
-                    .background(
-                        Color(red: 0, green: 0.50, blue: 1)
-                            .opacity(0.75)
-                            .cornerRadius(10)
-                            .shadow(radius: 10)
-                    )
+                    .background(state.buttonDisabled ?  Color(red: 0.5, green: 0.75, blue: 1.0) : Color(red: 0, green: 0.5, blue: 1.0, opacity: 0.75))
+                    .cornerRadius(10)
+                    .shadow(radius: state.buttonDisabled ? 0 : 10)
             })
+            .disabled(state.buttonDisabled)
             
             Divider()
                 .frame(height: 2)
@@ -217,30 +222,7 @@ struct SpirographView: View {
                     .bold()
                     .frame(maxWidth: .infinity, alignment: .center)
             } else if state.isLoading {
-                ZStack {
-                    Text("Loading...")
-                        .font(.system(.body, design: .rounded))
-                        .foregroundColor(.blue)
-                        .bold()
-                        .offset(x: 0, y: -25)
-         
-                    RoundedRectangle(cornerRadius: 3)
-                        .stroke(Color(.systemGray5), lineWidth: 3)
-                        .frame(width: 250, height: 3)
-         
-                    RoundedRectangle(cornerRadius: 3)
-                        .stroke(Color.blue, lineWidth: 3)
-                        .frame(width: 30, height: 3)
-                        .offset(x: loading_pos, y: 0)
-
-                }
-                .onAppear {
-                    loading_pos = -110
-                    withAnimation(.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
-                        loading_pos = 110
-                    }
-                }
-                
+                LoadingView()
             } else if state.encodedImage != "" {
                 let decodedImage = Data(base64Encoded: state.encodedImage) ?? Data()
                 let image = (UIImage(data: decodedImage) ?? UIImage(systemName: "questionmark.folder.fill"))

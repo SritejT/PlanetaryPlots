@@ -29,6 +29,8 @@ struct PlotOrbitsView: View {
     @State private var loading_pos = -110.0
     
     
+    
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 50) {
@@ -74,11 +76,11 @@ struct PlotOrbitsView: View {
                         .foregroundColor(.white)
                         .padding()
                         .padding(.horizontal, 20)
-                        .background(Color(red: 0, green: 0.5, blue: 1.0)
-                                        .opacity(0.75))
+                        .background(state.buttonDisabled ?  Color(red: 0.5, green: 0.75, blue: 1.0) : Color(red: 0, green: 0.5, blue: 1.0, opacity: 0.75))
                         .cornerRadius(10)
-                        .shadow(radius: 10)
+                        .shadow(radius: state.buttonDisabled ? 0 : 10)
                 })
+                .disabled(state.buttonDisabled)
                 
                 Divider()
                     .frame(height: 2)
@@ -93,33 +95,8 @@ struct PlotOrbitsView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         
                 } else if state.isLoading {
-
-                    ZStack {
-                        Text("Loading...")
-                            .font(.system(.body, design: .rounded))
-                            .foregroundColor(.blue)
-                            .bold()
-                            .offset(x: 0, y: -25)
-             
-                        RoundedRectangle(cornerRadius: 3)
-                            .stroke(Color(.systemGray5), lineWidth: 3)
-                            .frame(width: 250, height: 3)
-             
-                        RoundedRectangle(cornerRadius: 3)
-                            .stroke(Color.blue, lineWidth: 3)
-                            .frame(width: 30, height: 3)
-                            .offset(x: loading_pos, y: 0)
-
-                    }
-                    .onAppear {
-                        loading_pos = -110
-                        withAnimation(.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
-                            loading_pos = 110
-                        }
-                    }
-                    
+                    LoadingView()
                 } else if state.encodedImage != "" {
-                    
                     GIFView(base64: state.encodedImage)
                         .frame(width: 400.0, height: 400.0, alignment: .center)
                     
