@@ -34,20 +34,26 @@ struct PlotOrbitsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 50) {
-                HStack(spacing: 20) {
-                    VStack {
-                        CheckboxToggle(label: "Mercury", isOn: $mercuryOn)
-                        CheckboxToggle(label: "Venus", isOn: $venusOn)
-                        CheckboxToggle(label: "Earth", isOn: $earthOn)
-                        CheckboxToggle(label: "Mars", isOn: $marsOn)
-                        CheckboxToggle(label: "Jupiter", isOn: $jupiterOn)
-                    }
-                    
-                    VStack {
-                        CheckboxToggle(label: "Saturn", isOn: $saturnOn)
-                        CheckboxToggle(label: "Uranus", isOn: $uranusOn)
-                        CheckboxToggle(label: "Neptune", isOn: $neptuneOn)
-                        CheckboxToggle(label: "Pluto", isOn: $plutoOn)
+                VStack(spacing: 30) {
+                    Text("Select at least one planet orbit to plot:")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(.blue)
+                        .bold()
+                    HStack(spacing: 20) {
+                        VStack {
+                            CheckboxToggle(label: "Mercury", isOn: $mercuryOn)
+                            CheckboxToggle(label: "Venus", isOn: $venusOn)
+                            CheckboxToggle(label: "Earth", isOn: $earthOn)
+                            CheckboxToggle(label: "Mars", isOn: $marsOn)
+                            CheckboxToggle(label: "Jupiter", isOn: $jupiterOn)
+                        }
+                        
+                        VStack {
+                            CheckboxToggle(label: "Saturn", isOn: $saturnOn)
+                            CheckboxToggle(label: "Uranus", isOn: $uranusOn)
+                            CheckboxToggle(label: "Neptune", isOn: $neptuneOn)
+                            CheckboxToggle(label: "Pluto", isOn: $plutoOn)
+                        }
                     }
                 }
                 .padding()
@@ -96,6 +102,11 @@ struct PlotOrbitsView: View {
                         
                 } else if state.isLoading {
                     LoadingView()
+                    Text("This may take a few seconds...")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(.blue)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .center)
                 } else if state.encodedImage != "" {
                     GIFView(base64: state.encodedImage)
                         .frame(width: 400.0, height: 400.0, alignment: .center)

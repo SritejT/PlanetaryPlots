@@ -12,7 +12,8 @@
 		120E5BED2A713F6400804502 /* GIFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BEC2A713F6400804502 /* GIFView.swift */; };
 		120E5BF02A719BAB00804502 /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 120E5BEF2A719BAB00804502 /* FLAnimatedImage */; };
 		120E5BF42A7452E400804502 /* CheckboxToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E5BF32A7452E400804502 /* CheckboxToggle.swift */; };
-		121ED6B02A75836E00ECCAF6 /* CustomPlanetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */; };
+		121ED6B02A75836E00ECCAF6 /* CustomPlanetFormView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView1.swift */; };
+		1246160E2A7D56F700A26261 /* CustomPlanetFormView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1246160D2A7D56F700A26261 /* CustomPlanetFormView2.swift */; };
 		127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */; };
 		127E2B502A6007040030D8E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127E2B4F2A6007040030D8E4 /* ContentView.swift */; };
 		127E2B522A6007060030D8E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127E2B512A6007060030D8E4 /* Assets.xcassets */; };
@@ -52,7 +53,8 @@
 		120E5BEA2A6BC0A900804502 /* RelativeOrbitsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeOrbitsHandler.swift; sourceTree = "<group>"; };
 		120E5BEC2A713F6400804502 /* GIFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFView.swift; sourceTree = "<group>"; };
 		120E5BF32A7452E400804502 /* CheckboxToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggle.swift; sourceTree = "<group>"; };
-		121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlanetFormView.swift; sourceTree = "<group>"; };
+		121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlanetFormView1.swift; sourceTree = "<group>"; };
+		1246160D2A7D56F700A26261 /* CustomPlanetFormView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlanetFormView2.swift; sourceTree = "<group>"; };
 		127E2B4A2A6007040030D8E4 /* PlanetaryPlots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetaryPlots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127E2B4D2A6007040030D8E4 /* PlanetaryPlotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetaryPlotsApp.swift; sourceTree = "<group>"; };
 		127E2B4F2A6007040030D8E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,7 +139,8 @@
 				120E5BE82A6BC08800804502 /* RelativeOrbitsStateController.swift */,
 				120E5BEC2A713F6400804502 /* GIFView.swift */,
 				120E5BF32A7452E400804502 /* CheckboxToggle.swift */,
-				121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView.swift */,
+				121ED6AF2A75836D00ECCAF6 /* CustomPlanetFormView1.swift */,
+				1246160D2A7D56F700A26261 /* CustomPlanetFormView2.swift */,
 				12F7DDD92A78F7FE002929B6 /* LoadingView.swift */,
 			);
 			path = PlanetaryPlots;
@@ -310,13 +313,14 @@
 				127E2B7E2A6081180030D8E4 /* SpirographView.swift in Sources */,
 				120E5BEB2A6BC0A900804502 /* RelativeOrbitsHandler.swift in Sources */,
 				127E2B4E2A6007040030D8E4 /* PlanetaryPlotsApp.swift in Sources */,
+				1246160E2A7D56F700A26261 /* CustomPlanetFormView2.swift in Sources */,
 				129850612A6904A20025D6EF /* SpirographStateController.swift in Sources */,
 				127E2B7A2A6009320030D8E4 /* PlotOrbitsHandler.swift in Sources */,
 				12F7DDDA2A78F7FE002929B6 /* LoadingView.swift in Sources */,
 				127E2B782A6008600030D8E4 /* PlotOrbitsView.swift in Sources */,
 				127E2B7C2A6020C70030D8E4 /* PlotOrbitsStateController.swift in Sources */,
 				120E5BE92A6BC08800804502 /* RelativeOrbitsStateController.swift in Sources */,
-				121ED6B02A75836E00ECCAF6 /* CustomPlanetFormView.swift in Sources */,
+				121ED6B02A75836E00ECCAF6 /* CustomPlanetFormView1.swift in Sources */,
 				1298505F2A6904920025D6EF /* SpirographHandler.swift in Sources */,
 				120E5BF42A7452E400804502 /* CheckboxToggle.swift in Sources */,
 			);

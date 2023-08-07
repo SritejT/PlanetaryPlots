@@ -20,10 +20,6 @@ struct GIFView: UIViewRepresentable {
         }
         
         animatedView.translatesAutoresizingMaskIntoConstraints = false
-        // animatedView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
-        // animatedView.layer.cornerRadius = 10
-        // animatedView.layer.borderWidth = 1
-        // animatedView.layer.borderColor = UIColor(red: 0, green: 0.5, blue: 1, alpha: 0.75).cgColor
         
         view.addSubview(animatedView)
         

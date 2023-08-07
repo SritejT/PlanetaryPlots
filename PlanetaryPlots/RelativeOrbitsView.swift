@@ -54,7 +54,8 @@ struct RelativeOrbitsView: View {
     
     
     
-    @State private var showCustomForm = false
+    @State private var showCustomForm1 = false
+    @State private var showCustomForm2 = false
     @State private var semiMajorAxis1: String = "0.387"
     @State private var semiMajorAxis2: String = "0.387"
     @State private var orbitalPeriod1: String = "0.241"
@@ -69,8 +70,8 @@ struct RelativeOrbitsView: View {
     
     @State private var picker1Disabled = false
     @State private var picker2Disabled = false
-    @State private var custom1Disabled = false
-    @State private var custom2Disabled = false
+    @State private var custom1Disabled = true
+    @State private var custom2Disabled = true
     
     
     @State private var loading_pos = -110.0
@@ -84,11 +85,10 @@ struct RelativeOrbitsView: View {
                 VStack(spacing: 20) {
                     HStack(spacing: 10) {
                         Text("Select stationary planet: ")
+                            .frame(minWidth: 140, alignment: .leading)
                             .font(.headline)
-                            .fontWeight(.semibold)
-                        
                             .foregroundColor(.white)
-                            .frame(maxWidth: 210, alignment: .trailing)
+                            
                         
                         Menu(planet1.rawValue) {
                             ForEach(Planets.allCases) { planet in
@@ -104,29 +104,30 @@ struct RelativeOrbitsView: View {
                                 }
                             }
                         }
+                        .frame(minWidth: 80)
                         .foregroundColor(picker1Disabled ? .gray : .blue)
                         .padding()
                         .background(.white)
                         .cornerRadius(20)
-                        .frame(width: 110)
                         
 
                         
                         Button(action: {
                             custom1Disabled = false
-                            showCustomForm = true
+                            showCustomForm1 = true
                             picker1Disabled = true
                         }, label: {
                             Text("Custom Planet")
+                                .frame(minWidth: 70, alignment: .center)
                                 .foregroundColor(custom1Disabled ? .gray : .blue)
-                                .frame(maxWidth: 70, alignment: .center)
                                 .padding()
                                 .background(.white)
                                 .cornerRadius(20)
                                 
                         })
-                        .sheet(isPresented: $showCustomForm, content: {
-                            CustomPlanetFormView(showForm: $showCustomForm, orbitalPeriod: $orbitalPeriod1, semiMajorAxis: $semiMajorAxis1, eccentricity: $eccentricity1)
+                        .sheet(isPresented: $showCustomForm1, content: {
+                            CustomPlanetFormView1(showForm: $showCustomForm1, orbitalPeriod: $orbitalPeriod1, semiMajorAxis: $semiMajorAxis1, eccentricity: $eccentricity1)
+                                .interactiveDismissDisabled()
                         })
                     }
                     
@@ -141,7 +142,6 @@ struct RelativeOrbitsView: View {
                             .font(.headline)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
-                            .frame(maxWidth: 210, alignment: .trailing)
                         
                         Menu(planet2.rawValue) {
                             ForEach(Planets.allCases) { planet in
@@ -157,27 +157,28 @@ struct RelativeOrbitsView: View {
                                 }
                             }
                         }
+                        .frame(minWidth: 80)
                         .foregroundColor(picker2Disabled ? .gray : .blue)
                         .padding()
                         .background(.white)
                         .cornerRadius(20)
-                        .frame(width: 110)
                         
                         Button(action: {
                             custom2Disabled = false
-                            showCustomForm.toggle()
+                            showCustomForm2 = true
                             picker2Disabled = true
                         }, label: {
                             Text("Custom Planet")
+                                .frame(minWidth: 70, alignment: .center)
                                 .foregroundColor(custom2Disabled ? .gray : .blue)
-                                .frame(maxWidth: 70, alignment: .center)
                                 .padding()
                                 .background(.white)
                                 .cornerRadius(20)
                                 
                         })
-                        .sheet(isPresented: $showCustomForm, content: {
-                            CustomPlanetFormView(showForm: $showCustomForm, orbitalPeriod: $orbitalPeriod2, semiMajorAxis: $semiMajorAxis2, eccentricity: $eccentricity2)
+                        .sheet(isPresented: $showCustomForm2, content: {
+                            CustomPlanetFormView2(showForm: $showCustomForm2, orbitalPeriod: $orbitalPeriod2, semiMajorAxis: $semiMajorAxis2, eccentricity: $eccentricity2)
+                            .interactiveDismissDisabled()
                         })
                     }
                     .padding()
@@ -226,6 +227,13 @@ struct RelativeOrbitsView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                 } else if state.isLoading {
                     LoadingView()
+                    if abs(Double(semiMajorAxis1)! - Double(semiMajorAxis2)!) > 5 {
+                        Text("This may take longer for planets with large differences in semi-major axes.")
+                            .font(.system(.body, design: .rounded))
+                            .foregroundColor(.blue)
+                            .bold()
+                            .padding()
+                    }
                 } else if state.encodedImage != "" {
                     let decodedImage = Data(base64Encoded: state.encodedImage) ?? Data()
                     let image = (UIImage(data: decodedImage) ?? UIImage(systemName: "questionmark.folder.fill"))
@@ -238,7 +246,7 @@ struct RelativeOrbitsView: View {
                     Button(action: {
                         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
                     }, label: {
-                        Text("Save Relative Orbit")
+                        Text("Save Relative Orbit to Photos")
                             .font(.headline)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)

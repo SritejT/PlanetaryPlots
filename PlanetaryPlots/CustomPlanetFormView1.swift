@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomPlanetFormView: View {
+struct CustomPlanetFormView1: View {
     
     @Binding var showForm: Bool
     
@@ -24,7 +24,11 @@ struct CustomPlanetFormView: View {
                     Text("Orbital Period (years)")
                         .font(.headline)
                         .foregroundColor(.white)
-                    TextField("Enter orbital period", text: $orbitalPeriod)
+                    TextField("Enter orbital period", text: $orbitalPeriod, onEditingChanged: { editing in
+                        if !editing {
+                            semiMajorAxis = String(ceil(pow(Double(orbitalPeriod)!, 0.67) * 1000)/1000.0)
+                        }
+                    })
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(maxWidth: 300, alignment: .center)
@@ -37,7 +41,11 @@ struct CustomPlanetFormView: View {
                     Text("Semi-Major Axis (AU)")
                         .font(.headline)
                         .foregroundColor(.white)
-                    TextField("Enter semi-major axis", text: $semiMajorAxis)
+                    TextField("Enter semi-major axis", text: $semiMajorAxis, onEditingChanged: { editing in
+                        if !editing {
+                            orbitalPeriod = String(ceil(pow(Double(semiMajorAxis)!, 1.5) * 1000)/1000.0)
+                        }
+                    })
                         .padding()
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(maxWidth: 300, alignment: .center)
@@ -51,9 +59,10 @@ struct CustomPlanetFormView: View {
                         .font(.headline)
                         .foregroundColor(.white)
                     TextField("Enter eccentricity", text: $eccentricity)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(maxWidth: 300, alignment: .center)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(maxWidth: 300, alignment: .center)
+                        
                 }
                 .padding()
                 .background(Color(red: 0, green: 0.5, blue: 1, opacity: 0.75))

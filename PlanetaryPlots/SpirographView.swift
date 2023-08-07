@@ -50,7 +50,8 @@ struct SpirographView: View {
         "Pluto": "0.25"
     ]
     
-    @State var showCustomForm = false
+    @State var showCustomForm1 = false
+    @State var showCustomForm2 = false
     @State var semiMajorAxis1: String = "0.387"
     @State var semiMajorAxis2: String = "0.387"
     @State var orbitalPeriod1: String = "0.241"
@@ -65,8 +66,8 @@ struct SpirographView: View {
     
     @State var picker1Disabled = false
     @State var picker2Disabled = false
-    @State var custom1Disabled = false
-    @State var custom2Disabled = false
+    @State var custom1Disabled = true
+    @State var custom2Disabled = true
     
     @State private var loading_pos = -110.0
     @StateObject var state = SpirographStateController()
@@ -88,7 +89,6 @@ struct SpirographView: View {
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                        .frame(maxWidth: 150, alignment: .trailing)
                     
                     Menu(planet1.rawValue) {
                         ForEach(Planets.allCases) { planet in
@@ -98,33 +98,37 @@ struct SpirographView: View {
                                 semiMajorAxis1 = semiMajorAxes[planet.rawValue]!
                                 orbitalPeriod1 = orbitalPeriods[planet.rawValue]!
                                 eccentricity1 = eccentricities[planet.rawValue]!
+
                                 custom1Disabled = true
                             } label: {
                                 Text(planet.rawValue)
                             }
                         }
                     }
+                    .frame(minWidth: 80)
                     .foregroundColor(picker1Disabled ? .gray : .blue)
                     .padding()
                     .background(.white)
                     .cornerRadius(20)
                     
+                    
                         
                     Button(action: {
                         custom1Disabled = false
-                        showCustomForm = true
+                        showCustomForm1 = true
                         picker1Disabled = true
                     }, label: {
                         Text("Custom Planet")
+                            .frame(minWidth: 70, alignment: .center)
                             .foregroundColor(custom1Disabled ? .gray : .blue)
-                            .frame(maxWidth: 70, alignment: .center)
                             .padding()
                             .background(.white)
                             .cornerRadius(20)
                             
                     })
-                    .sheet(isPresented: $showCustomForm, content: {
-                        CustomPlanetFormView(showForm: $showCustomForm, orbitalPeriod: $orbitalPeriod1, semiMajorAxis: $semiMajorAxis1, eccentricity: $eccentricity1)
+                    .sheet(isPresented: $showCustomForm1, content: {
+                        CustomPlanetFormView1(showForm: $showCustomForm1, orbitalPeriod: $orbitalPeriod1, semiMajorAxis: $semiMajorAxis1, eccentricity: $eccentricity1)
+                        .interactiveDismissDisabled()
                     })
 
                 }
@@ -139,7 +143,7 @@ struct SpirographView: View {
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                        .frame(maxWidth: 150, alignment: .trailing)
+                        // .frame(maxWidth: 150, alignment: .leading)
                     
                     Menu(planet2.rawValue) {
                         ForEach(Planets.allCases) { planet in
@@ -155,6 +159,7 @@ struct SpirographView: View {
                             }
                         }
                     }
+                    .frame(minWidth: 80)
                     .foregroundColor(picker2Disabled ? .gray : .blue)
                     .padding()
                     .background(.white)
@@ -162,19 +167,21 @@ struct SpirographView: View {
                     
                     Button(action: {
                         custom2Disabled = false
-                        showCustomForm = true
+                        showCustomForm2 = true
                         picker2Disabled = true
                     }, label: {
                         Text("Custom Planet")
+                            .frame(minWidth: 70, alignment: .center)
                             .foregroundColor(custom2Disabled ? .gray : .blue)
-                            .frame(maxWidth: 70, alignment: .center)
+                            
                             .padding()
                             .background(.white)
                             .cornerRadius(20)
                             
                     })
-                    .sheet(isPresented: $showCustomForm, content: {
-                        CustomPlanetFormView(showForm: $showCustomForm, orbitalPeriod: $orbitalPeriod2, semiMajorAxis: $semiMajorAxis2, eccentricity: $eccentricity2)
+                    .sheet(isPresented: $showCustomForm2, content: {
+                        CustomPlanetFormView2(showForm: $showCustomForm2, orbitalPeriod: $orbitalPeriod2, semiMajorAxis: $semiMajorAxis2, eccentricity: $eccentricity2)
+                        .interactiveDismissDisabled()
                     })
                 }
                 .padding()
@@ -213,7 +220,7 @@ struct SpirographView: View {
             Divider()
                 .frame(height: 2)
                 .overlay(Color(red: 0, green: 0.5, blue: 1.0)
-                            .opacity(0.1))
+                     .opacity(0.1))
             
             if !verified {
                 Text("You cannot pick the same planet twice.")
@@ -235,7 +242,7 @@ struct SpirographView: View {
                 Button(action: {
                     UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
                 }, label: {
-                    Text("Save Spirograph")
+                    Text("Save Spirograph to Photos")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
